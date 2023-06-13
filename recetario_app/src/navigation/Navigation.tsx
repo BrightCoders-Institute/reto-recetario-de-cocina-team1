@@ -1,7 +1,7 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
 import { HomeScreen } from '../Screens/HomeScreen';
-import { DetailScreen } from '../Screens/DetailScreen';
+import { RecipeDetailScreen } from '../Screens/RecipeDetailScreen';
 
 export type RootStackParams = {
     HomeScreen: undefined,
@@ -16,7 +16,7 @@ export const Navigation = () => {
         headerShown: true
     }}>
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      <Stack.Screen name="DetailScreen" component={DetailScreen} />
+      <Stack.Screen name="DetailScreen" component={RecipeDetailScreen} />
     </Stack.Navigator>
   );
 }

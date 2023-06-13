@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     text: {
-        color: '#FFFFFF'
+        color: '#444654'
     },
     name: {
         fontSize: 16,
