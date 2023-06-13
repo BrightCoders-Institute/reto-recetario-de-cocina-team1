@@ -2,21 +2,24 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
 
-    cardContainer:{
-
+  cardContainer:{
     width:'50%',
     hight:'50%',
     alignItems:'center',
-    },
-    imageContainer:{
+    borderWidth: 1,
+    borderColor: 'black'
+  },
+  imageContainer:{
 
-    },
+  },
   image: {
     width: 90,
     height: 90,
     borderRadius: 10,
     marginTop: 10,
     marginBottom:5,
+    borderWidth: 1,
+    borderColor: 'red'
   },
   nameContainer:{
 
@@ -26,7 +29,8 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: 'black',
     marginBottom:5,
-
+    borderWidth: 1,
+    borderColor: 'blue'
   },
 });
 
