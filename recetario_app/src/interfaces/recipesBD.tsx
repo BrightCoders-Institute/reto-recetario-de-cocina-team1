@@ -1,3 +1,10 @@
+export interface ScreenData {
+    key: string,
+    name: string,
+    params: Recipe,
+    path: string | undefined
+}
+
 export interface Recipe {
     id:           number;
     type:         string;

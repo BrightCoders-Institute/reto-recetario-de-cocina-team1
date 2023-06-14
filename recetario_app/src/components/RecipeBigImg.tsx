@@ -21,11 +21,9 @@ const RecipeBigImg: React.FC<RecipeBigImgProps> = ({imageURL, title, type}) => {
 
     return(
             <View style={styles.column}>
-                {/* TODO: Add top buttons */}
                 <Image 
                     style={[styles.image, {width: screenWidth}, {height: screenHeight*0.4}]} 
                     source={{uri: imageURL}}
-                    // source={{uri: 'http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg'}}
                     resizeMode="cover"                    
                 />
                 <View style={[styles.columnFood, {marginTop: screenHeight*0.3}]}>
@@ -61,7 +59,8 @@ const styles = StyleSheet.create({
     },
     type: {
         color: 'white',
-        fontWeight: 'bold',
-        fontSize: 16
+        fontWeight: '400',
+        fontSize: 18,
+        letterSpacing: 1
     }
 });

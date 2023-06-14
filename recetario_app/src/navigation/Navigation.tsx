@@ -2,21 +2,21 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
 import { HomeScreen } from '../Screens/HomeScreen';
 import { RecipeDetailScreen } from '../Screens/RecipeDetailScreen';
+import { Recipe } from '../interfaces/recipesBD';
 
 export type RootStackParams = {
     HomeScreen: undefined,
-    DetailScreen: undefined,
+    DetailScreen: Recipe,
+    Undefined: undefined
 }
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParams>();
 
 export const Navigation = () => {
   return (
-    <Stack.Navigator screenOptions={{
-        headerShown: true
-    }}>
-      <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      <Stack.Screen name="DetailScreen" component={RecipeDetailScreen} />
+    <Stack.Navigator initialRouteName='HomeScreen'>
+      <Stack.Screen name="HomeScreen" component={HomeScreen} options={{title: 'Home'}} />
+      <Stack.Screen name="DetailScreen" component={RecipeDetailScreen} options={{title: 'Recipe Details'}} />
     </Stack.Navigator>
   );
 }

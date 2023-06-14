@@ -2,20 +2,24 @@ import React from 'react'
 import {View, Text, StyleSheet, Image, TouchableHighlight, useColorScheme} from 'react-native'
 import { Recipe } from '../../interfaces/recipesBD';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParams } from '../../navigation/Navigation';
 
 interface Props {
     recipe: Recipe,
-    type?: 'trending' | 'recent'
+    type: 'trending' | 'recent',
+    navigation: StackNavigationProp<RootStackParams>
 }
 
-export const Card = ({recipe, type} : Props) => {
+export const Card = ({recipe, type, navigation} : Props) => {
     const uri = recipe.imageURL;
     const colorScheme = useColorScheme();
     const textColor = colorScheme === 'dark' ? 'white' : 'black';
+
     return (
     <>
         <View style = {[styles.imageContainer, type === 'trending' ? styles.trending : styles.recent]}>
-          <TouchableHighlight style={styles.touchable} onPress={() => {}}>
+          <TouchableHighlight style={styles.touchable} onPress={() => { navigation.navigate('DetailScreen', recipe)}} >
             <Image source = {{ uri }} style = {[styles.image, type === 'trending' ? styles.trending : styles.imageRecent]}/>
           </TouchableHighlight>
         </View>

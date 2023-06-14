@@ -4,7 +4,8 @@ import {
     View, 
     FlatList, 
     Text, 
-    StyleSheet 
+    StyleSheet, 
+    useColorScheme
 } from 'react-native';
 
 import Ingredient from '../interfaces/Ingredient';
@@ -12,6 +13,8 @@ import Ingredient from '../interfaces/Ingredient';
 interface IngredientListProps {
     data: Ingredient[];
 }
+
+const isDarkMode = useColorScheme() === 'dark';
 
 const IngredientList: React.FC<IngredientListProps> = ({data}) => {
 
@@ -22,8 +25,8 @@ const IngredientList: React.FC<IngredientListProps> = ({data}) => {
             renderItem={({ item }) => (
                 <View style={styles.column}>
                     <View style={styles.itemContainer}>
-                        <Text style={styles.text}>{item.name}</Text>
-                        <Text style={styles.text}>{item.quantity}</Text>
+                        <Text style={isDarkMode ? {color: 'white'} : {color: '#444654'}}>{item.name}</Text>
+                        <Text style={isDarkMode ? {color: 'white'} : {color: '#444654'}}>{item.quantity}</Text>
                     </View>   
                     <View style={styles.separator}/>     
                 </View>    
@@ -39,11 +42,8 @@ const styles = StyleSheet.create({
     },
     itemContainer: {
         flexDirection: 'row',
-        padding: 10,
+        padding: 18,
         justifyContent: 'space-between'
-    },
-    text: {
-        color: '#444654'
     },
     name: {
         fontSize: 16,

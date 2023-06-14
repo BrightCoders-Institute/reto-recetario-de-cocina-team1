@@ -1,18 +1,22 @@
 import React from 'react';
-import { View, StyleSheet, FlatList, useColorScheme } from 'react-native';
+import { View, StyleSheet, FlatList } from 'react-native';
 import data from '../data/kitchenRecipes.json';
 import { Card } from './Card';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParams } from '../navigation/Navigation';
 
 interface CarouselProps {
-  type?: 'trending' | 'recent'
+  type: 'trending' | 'recent',
+  navigation: StackNavigationProp<RootStackParams>
 }
 
-export function Carousel({type = 'trending'} : CarouselProps) {
+export function Carousel({type = 'trending', navigation} : CarouselProps) {
+
   const renderRecipeCard = ({ item }: { item: any }) => (
     <>
       <View style = { [styles.recipeCardContainer, type === 'trending' ? styles.trending : styles.recent ] }>
-        <Card recipe = { item } type = {type}/>
+        <Card recipe = { item } type = {type} navigation = {navigation}/>
       </View>
     </>
   );

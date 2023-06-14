@@ -1,25 +1,15 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
-  StyleSheet,
-  Text,
   useColorScheme,
-  View,
 } from 'react-native';
 
 import {
   Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import { HomeScreen } from './src/Screens/HomeScreen';
-import { NavigationContainer } from '@react-navigation/native';
+import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { Navigation } from './src/navigation/Navigation';
 
 function App(): JSX.Element {
@@ -29,16 +19,24 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  // const newTheme = {
+  //       dark: true,
+  //       colors: {
+  //         background: '#282828'
+  //       },
+  // }
+
+  const theme = isDarkMode ? DarkTheme : DefaultTheme;
+
   return (
     <SafeAreaView style={[backgroundStyle, {flex: 1}]}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <NavigationContainer>
+      <NavigationContainer theme={theme}>
         <Navigation/>
       </NavigationContainer>
-      {/* <HomeScreen/> */}
     </SafeAreaView>
   );
 }

@@ -1,11 +1,11 @@
 import { useNavigation } from '@react-navigation/native'
 import React from 'react';
-import {View, StyleSheet, Button} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import { Title } from '../components/Title';
 import { Carousel } from '../components/Carousel';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParams } from '../navigation/Navigation';
+import { RootStackParams} from '../navigation/Navigation';
 
 export const HomeScreen = () => {
 
@@ -18,15 +18,14 @@ export const HomeScreen = () => {
       </View>
         <View style = {styles.trendingSection}>
           <Title title='TRENDING'/>
-          <Carousel type='trending'></Carousel>
+          <Carousel type='trending' navigation={navigation}></Carousel>
         </View>
       <View>
           <View style = {styles.recentSection}>
               <Title title='RECENT'/>
-              <Carousel type='recent'></Carousel>
+              <Carousel type='recent' navigation={navigation}></Carousel>
           </View>
       </View>
-      <Button title='Ir a Detalle' onPress={() => navigation.navigate('DetailScreen')}/>
    </View>
  )
 }
