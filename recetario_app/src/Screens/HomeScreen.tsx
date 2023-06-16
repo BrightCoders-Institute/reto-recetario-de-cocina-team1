@@ -18,19 +18,19 @@ export const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <SearchBar onSearch={handleSearch} />
-      <ScrollView>
-        <View style={styles.trendingSection} testID='trendingCarrousel'>
+      <View style={styles.carouselConteiners}>
+        <SearchBar onSearch={handleSearch} />
+        <View style={styles.trendingSection}>
           <Title title="TRENDING" />
           <Carousel type="trending" navigation={navigation}></Carousel>
         </View>
         <View>
-          <View style={styles.recentSection} testID='recentCarrousel'>
+          <View style={styles.recentSection} testID="recentCarrousel">
             <Title title="RECENT" />
             <Carousel type="recent" navigation={navigation}></Carousel>
           </View>
         </View>
-      </ScrollView>
+      </View>
     </View>
   );
 };
@@ -50,6 +50,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#343435',
     borderRadius: 10,
+  },
+  carouselConteiners: {
+    flex: 1,
+    justifyContent: 'space-evenly',
   },
   trendingSection: {
     height: wp('52%'),
