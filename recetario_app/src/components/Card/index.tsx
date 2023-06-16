@@ -31,6 +31,7 @@ export const Card = ({recipe, type, navigation}: Props) => {
           type === 'trending' ? styles.trending : styles.recent,
         ]}>
         <TouchableHighlight
+          testID='recipeContainer'
           style={styles.touchable}
           onPress={() => {
             navigation.navigate('DetailScreen', recipe);

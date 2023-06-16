@@ -20,12 +20,12 @@ export const HomeScreen = () => {
     <View style={styles.container}>
       <SearchBar onSearch={handleSearch} />
       <ScrollView>
-        <View style={styles.trendingSection}>
+        <View style={styles.trendingSection} testID='trendingCarrousel'>
           <Title title="TRENDING" />
           <Carousel type="trending" navigation={navigation}></Carousel>
         </View>
         <View>
-          <View style={styles.recentSection}>
+          <View style={styles.recentSection} testID='recentCarrousel'>
             <Title title="RECENT" />
             <Carousel type="recent" navigation={navigation}></Carousel>
           </View>
